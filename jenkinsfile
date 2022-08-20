@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    
+    tools{
+    maven "Maven"
+    }
+    stages {
+    
+     stage('Clean') {
+            steps {
+bat label:'', script:'mvn clean'
+                echo 'cleaning..'
+            }
+        
+         }
+     stage('Install') {
+            steps {
+                 bat label:'', script:'mvn install'
+                echo 'installing..'
+            }
+        }
+    }
+}  
